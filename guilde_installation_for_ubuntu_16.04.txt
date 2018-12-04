@@ -1,0 +1,97 @@
+ 
+                                                  
+                              -- How to install Odoo 12 on Ubuntu 16.04 --
+
+STEP 1
+sudo apt-get update
+
+STEP 2
+sudo apt-get dist-upgrade
+
+STEP 3
+sudo apt-get install python3-pip
+
+STEP 4
+sudo apt-get install postgresql
+sudo su - postgres
+createuser --createdb --username postgres --no-createrole --no-superuser --pwprompt odoo12
+Enter password for new role: ********
+Enter it again: ********
+
+STEP 5
+sudo apt-get install git
+
+STEP 6
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 12.0 --single-branch
+
+STEP7
+
+sudo apt-get install python3-pip lib32z1-dev libxml2-dev libxslt1-dev libsasl2-dev python-dev libldap2-dev node-less python-cups python-dateutil python-decorator python-docutils python-feedparser python-gdata python-geoip python-gevent python-jinja2 python-ldap python-libxslt1 python-lxml python-mako python-mock python-openid python-passlib python-psutil python-psycopg2 python-pychart python-pydot python-pyparsing python-reportlab python-requests python-simplejson python-tz python-unicodecsv python-unittest2 python-vatnumber python-vobject python-werkzeug python-xlwt python-yaml wkhtmltopdf python-pypdf2
+
+STEP 8
+pip3 install PyPDF2 Babel decorator docutils ebaysdk feedparser gevent greenlet html2text Jinja2 lxml Mako MarkupSafe mock num2words ofxparse passlib Pillow psutil psycogreen psycopg2 pydot pyparsing PyPDF2 pyserial python-dateutil python-openid pytz pyusb PyYAML qrcode reportlab requests six suds-jurko vatnumber vobject Werkzeug XlsxWriter xlwt xlrd
+
+STEP 9
+sudo apt-get install -y npm
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+sudo npm install -g less less-plugin-clean-css
+sudo apt-get install node-less
+
+STEP 10
+pip3 install -r requirements.txt
+
+STEP 11
+Create Odoo Log File
+sudo mkdir /var/log/odoo
+sudo chown -R [os-user_name]:root /var/log/odoo
+
+STEP 12
+copy odoo.conf from ~/workspace/odoo/odoo12/odoo/debian -> ~/workspace/odoo/odoo12/
+paste content
+------------------------------------
+[options]
+; This is the password that allows database operations:
+; admin_passwd = admin
+db_host = localhost
+db_port = 5432
+db_user = odoo12
+db_password = odoo12
+logfile = /var/log/odoo/odoo12-server.log
+addons_path = /home/ubuntu/workspace/odoo/odoo12/odoo/addons, /home/ubuntu/workspace/odoo/odoo12/odoo/odoo/addons
+
+---------------------------------------------------
+
+STEP 13
+sudo apt-get -f install
+sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
+sudo dpkg -i wkhtmltox-0.12.1_linux-trusty-amd64.deb
+sudo cp /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
+sudo cp /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
+
+STEP 14
+
+cd /usr/local/lib/
+sudo git clone https://github.com/sass/sassc.git --branch 3.4.2 --depth 1
+sudo git clone https://github.com/sass/libsass.git --branch 3.4-stable --depth 1
+sudo git clone https://github.com/sass/sass-spec.git --depth=1
+
+STEP 15
+echo 'SASS_LIBSASS_PATH="/usr/local/lib/libsass"' | sudo tee -a /etc/environment
+source /etc/environment
+
+STEP 16
+sudo make -C libsass
+sudo make -C sassc
+sudo make -C sassc install
+
+STEP 17
+Run Odoo Server
+cd ~/workspace/odoo/odoo12/odoo/
+
+python3 odoo-bin -c ../odoo.conf
+	or
+./odoo-bin
+
+STEP 18
+Open browser on :
+http://localhost:8069

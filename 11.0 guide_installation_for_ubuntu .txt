@@ -1,0 +1,30 @@
+   -- How to install Odoo 11 on Ubuntu 16.04 --
+
+sudo apt-get install postgresql
+
+sudo su - postgres
+
+createuser --createdb --username postgres --no-createrole --no-superuser --pwprompt odoo11
+
+Enter password for new role: ********
+Enter it again: ********
+
+sudo apt-get install git
+
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0 --single-branch
+
+sudo apt-get install python-pip lib32z1-dev libxml2-dev libxslt1-dev libsasl2-dev python-dev libldap2-dev node-less python-cups python-dateutil python-decorator python-docutils python-feedparser python-gdata python-geoip python-gevent python-pillow python-jinja2 python-ldap python-libxslt1 python-lxml python-mako python-mock python-openid python-passlib python-psutil python-psycopg2 python-pychart python-pydot python-pyparsing python-reportlab python-requests python-simplejson python-tz python-unicodecsv python-unittest2 python-vatnumber python-vobject python-werkzeug python-xlwt python-yaml wkhtmltopdf python-pypdf2
+
+pip install PyPDF2
+pip install passlib
+
+
+sudo apt-get install -y npm
+
+sudo npm install -g less less-plugin-clean-css
+
+sudo apt-get install node-less
+
+pip install -r requirements.txt
+
+python odoo-bin -c ../odoo.conf

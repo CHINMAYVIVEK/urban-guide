@@ -62,11 +62,11 @@ addons_path = /home/ubuntu/workspace/odoo/odoo12/odoo/addons, /home/ubuntu/works
 ---------------------------------------------------
 
 STEP 13
-sudo apt-get -f install
-sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
-sudo dpkg -i wkhtmltox-0.12.1_linux-trusty-amd64.deb
-sudo cp /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
-sudo cp /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
+sudo wget https://builds.wkhtmltopdf.org/0.12.1.4/wkhtmltox_0.12.1.4-1.xenial_amd64.deb
+sudo dpkg -i wkhtmltox_0.12.1.4-1.xenial_amd64.deb
+sudo apt-get install -f
+sudo ln -s /usr/local/bin/wkhtmltopdf /usr/bin
+sudo ln -s /usr/local/bin/wkhtmltoimage /usr/bin
 
 STEP 14
 

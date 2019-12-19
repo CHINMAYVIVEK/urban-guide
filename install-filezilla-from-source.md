@@ -23,10 +23,9 @@ Then extract, build and install:
 * ``make``
 * ``sudo make install ``
 
-With the lib installs you might get the following message if it doesn't start:
+***With the lib installs you might get the following message if it doesn't start:***
 
-* `` filezilla: error while loading shared libraries: ``
-* ``libfilezilla.so.0: cannot open shared object file: No such file or directory ``
+___``filezilla: error while loading shared libraries: libfilezilla.so.0: cannot open shared object file: No such file or directory``___
 
 ## To fix it, simply run
 

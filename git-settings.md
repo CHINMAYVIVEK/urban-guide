@@ -20,14 +20,15 @@ copy and paste ssh key to respective accounts
 **Configure SSH to use the correct keys**
 Now create the file `` ~/.ssh/config `` and add the following contents:
 
-`` Host gitlab.com
-    HostName gitlab.com
-    User git
-    IdentityFile ~/.ssh/id_rsa.pub
-Host gitlab.com-work
-    HostName gitlab.com
-    User git
-    IdentityFile ~/.ssh/id_ed25519.pub ``
+Host gitlab.com   
+    HostName gitlab.com    
+    User git  
+    IdentityFile ~/.ssh/id_rsa.pub  
+    
+Host gitlab.com-work    
+    HostName gitlab.com    
+    User git  
+    IdentityFile ~/.ssh/id_ed25519.pub
 
 **Cloning repositories**
 * ***Personal***

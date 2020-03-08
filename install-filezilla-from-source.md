@@ -17,7 +17,7 @@ Then extract, build and install:
 
 ***Now get the source for Filezilla 3.47.1(latest) from [here](https://filezilla-project.org/download.php?show_all=1) Then extract, build and install:***
 
-* `` tar -vxjf FileZilla_3.47.1_src.tar.bz2`` 
+* `` tar -xvjf FileZilla_3.47.1_src.tar.bz2`` 
 * ``cd filezilla-3.47.1/``
 * ``./configure``
 * ``make``

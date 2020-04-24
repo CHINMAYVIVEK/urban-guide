@@ -1,0 +1,95 @@
+                               
+                               -- How to install Odoo 13 on Ubuntu 20.04 --
+
+STEP 1
+sudo apt-get update
+
+STEP 2
+sudo apt-get dist-upgrade
+
+STEP 3
+sudo apt-get install python3-pip
+
+STEP 4
+sudo apt-get install postgresql
+sudo su - postgres
+createuser --createdb --username postgres --no-createrole --no-superuser --pwprompt odoo13
+Enter password for new role: ********
+Enter it again: ********
+
+STEP 5
+sudo apt-get install git
+
+STEP 6
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 13.0 --single-branch
+
+STEP7
+sudo apt install git python3-pip build-essential wget python3-dev python3-venv python3-wheel lib32z1-dev libxml2-dev libxslt1-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less libsasl2-dev python3-cups python3-dateutil python3-decorator python3-docutils python3-feedparser python3-geoip python3-gevent python3-jinja2 python3-ldap python3-lxml python3-mako python3-mock python3-openid python3-passlib python3-psutil python3-psycopg2 python3-pydot python3-pyparsing python3-reportlab python3-requests python3-simplejson python3-tz python3-unicodecsv python3-unittest2 python3-vatnumber python3-vobject python3-werkzeug python3-xlwt python3-yaml wkhtmltopdf python3-pypdf2
+
+STEP 8
+pip3 install PyPDF2 Babel decorator docutils ebaysdk feedparser gevent greenlet html2text Jinja2 lxml Mako MarkupSafe mock num2words ofxparse passlib Pillow psutil psycogreen psycopg2 pydot pyparsing PyPDF2 pyserial python-dateutil python-openid pytz pyusb PyYAML qrcode reportlab requests six suds-jurko vatnumber vobject Werkzeug XlsxWriter xlwt xlrd Werkzeug==0.14.1 polib
+
+STEP 9
+sudo apt-get install -y npm
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+sudo npm install -g less less-plugin-clean-css
+sudo apt-get install node-less
+
+STEP 10
+pip3 install -r requirements.txt
+
+STEP 11
+Create Odoo Log File
+sudo mkdir /var/log/odoo
+sudo chown -R [os-user_name]:root /var/log/odoo
+
+STEP 12
+copy odoo.conf from ~/workspace/odoo/odoo13/odoo/debian -> ~/workspace/odoo/odoo13/
+paste content
+------------------------------------
+[options]
+; This is the password that allows database operations:
+; admin_passwd = admin
+db_host = localhost
+db_port = 5432
+db_user = odoo13
+db_password = odoo13
+logfile = /var/log/odoo/odoo13-server.log
+addons_path = /home/ubuntu/workspace/odoo/odoo13/odoo/addons, /home/ubuntu/workspace/odoo/odoo13/odoo/odoo/addons
+
+---------------------------------------------------
+
+STEP 13
+sudo wget http://archive.ubuntu.com/ubuntu/pool/universe/w/wkhtmltopdf/wkhtmltopdf_0.12.5-1build1_amd64.deb
+sudo dpkg -i wkhtmltopdf_0.12.5-1build1_amd64.deb
+sudo apt-get install -f
+sudo ln -s /usr/local/bin/wkhtmltopdf /usr/bin
+sudo ln -s /usr/local/bin/wkhtmltoimage /usr/bin
+
+STEP 14
+cd /usr/local/lib/
+sudo git clone https://github.com/sass/sassc.git --branch 3.4.2 --depth 1
+sudo git clone https://github.com/sass/libsass.git --branch 3.4-stable --depth 1
+sudo git clone https://github.com/sass/sass-spec.git --depth=1
+
+STEP 15
+echo 'SASS_LIBSASS_PATH="/usr/local/lib/libsass"' | sudo tee -a /etc/environment
+source /etc/environment
+
+STEP 16
+sudo make -C libsass
+sudo make -C sassc
+sudo make -C libsass install
+sudo make -C sassc install
+
+STEP 17
+Run Odoo Server
+cd ~/workspace/odoo/odoo13/odoo/
+
+python3 odoo-bin -c ../odoo.conf
+	or
+./odoo-bin
+
+STEP 18
+Open browser on :
+http://localhost:8069

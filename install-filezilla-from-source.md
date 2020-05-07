@@ -23,8 +23,20 @@ Then extract, build and install:
 * ``make``
 * ``sudo make install ``
 
-___``filezilla: might shows error for wxWidget while installing Filezilla {ubuntu 20.04 LTS required wxWidget 3.0.x}``___
-
+___``filezilla: might shows error for wxWidget while installing Filezilla {ubuntu 20.04 LTS required wxWidget 3.0.x}``___  
+ checking for wx-config... no   
+configure: error:  
+        wxWidgets must be installed on your system   
+        but either the wx-config script couldn't be found or  
+        no compatible wxWidgets configuration has been installed.  
+</br>
+        Compatible wxWidgets configurations are the unicode builds  
+        of wxGTK, wxMac and wxMSW.  
+</br>
+        Please check that wx-config is in path, the directory  
+        where wxWidgets libraries are installed (returned by  
+        'wx-config --libs' command) is in LD_LIBRARY_PATH or  
+        equivalent variable and wxWidgets version is 3.0.4 or above.  
 ## To fix it, Follow the instruction 
 * get the source for wxWidget Latest Stable Release: 3.0.5 from [here](https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5/wxWidgets-3.0.5.tar.bz2)
 

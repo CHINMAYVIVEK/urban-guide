@@ -55,6 +55,8 @@ db_host = localhost
 db_port = 5432
 db_user = odoo13
 db_password = odoo13
+; db_name = test_db
+; xmlrpc_port = 4322
 logfile = /var/log/odoo/odoo13-server.log
 addons_path = /home/ubuntu/workspace/odoo/odoo13/odoo/addons, /home/ubuntu/workspace/odoo/odoo13/odoo/odoo/addons
 

@@ -23,12 +23,12 @@ Now create the file `` ~/.ssh/config `` and add the following contents:
 Host gitlab.com   
     HostName gitlab.com    
     User git  
-    IdentityFile ~/.ssh/id_rsa.pub  
+    IdentityFile ~/.ssh/id_rsa
     
 Host gitlab.com-work    
     HostName gitlab.com    
     User git  
-    IdentityFile ~/.ssh/id_ed25519.pub
+    IdentityFile ~/.ssh/id_ed25519
 </pre>
 **Cloning repositories**
 * ***Personal***

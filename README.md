@@ -1,6 +1,6 @@
 # urban-guide
 ## The installation guide
-Installation guide for various softwares and tools used for development and and project management
-* Hosting
-* Development
-* Tools
+Installation guide for Tryton CMS/Framework for GNU Health softwares development and and project management
+* Tryton Installation
+* GNU HEalth Installation
+* Tryton Dependent Module for GNU Health
